@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:49:55 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/18 20:18:12 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/19 10:53:00 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,13 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				*ft_memccpy(void *str1, const void *str2, int c, size_t n);
+
+/*
+** Her functions
+*/
+
+int					digit_her(char *args);
+void				free_her(char **dirs);
 
 /*
 ** Size_t functions

@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_herfuncs.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/19 10:14:58 by fremoor          ###   ########.fr       */
+/*   Created: 2019/08/19 10:50:47 by fremoor           #+#    #+#             */
+/*   Updated: 2019/08/19 10:52:10 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-int main()
+void		free_her(char **dirs)
 {
-	ft_printf("Hey\n");
+	int		i;
+
+	i = 0;
+	while (dirs[i])
+		ft_strdel(&dirs[i++]);
+	free(dirs);
+}
+
+int			digit_her(char *arg)
+{
+	int		i;
+
+	i = 0;
+	while (arg[i])
+		if (!ft_isdigit(arg[i++]))
+			return (0);
+	return (1);
 }
