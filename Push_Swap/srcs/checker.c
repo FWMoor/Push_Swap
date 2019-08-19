@@ -3,29 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/19 13:02:43 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/19 20:04:43 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void		print_lst(t_stack *lst)
-{
-	t_stack	*temp;
-
-	temp = lst;
-	if (check_dups(lst))
-		ft_printf("Error\n");
-	else
-		while (temp != NULL)
-		{
-			ft_printf("%d\n", temp->val);
-			temp = temp->next;
-		}
-}
 
 int			pop_lst(char **av)
 {
@@ -63,9 +48,9 @@ int			main(int ac, char **av)
 		return (0);
 	else
 	{
-		if (check_args(ac, av) != 0)
-			if (pop_lst(av) == 0)
-				write(1, "Error\n", 6);
+		if (check_args(ac, av))
+			if (!pop_lst(av))
+				ft_putendl("Error");
 	}
 	return (0);
 }

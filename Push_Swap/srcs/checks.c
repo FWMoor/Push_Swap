@@ -3,14 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/19 12:59:04 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/19 20:03:27 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+int			check_sort(t_stack **stacka)
+{
+	t_stack	*temp;
+
+	temp = *stacka;
+	while (temp->next)
+	{
+		if (temp->val > temp->next->val)
+		{
+			ft_putendl("KO");
+			return (1);
+		}
+		temp = temp->next;
+	}
+	ft_putendl("OK");
+	return (1);
+}
 
 int			check_dups(t_stack *list)
 {
@@ -24,7 +42,10 @@ int			check_dups(t_stack *list)
 		while (temp)
 		{
 			if (temp->val == cur->val)
+			{
+				list_del(&list);
 				return (1);
+			}
 			temp = temp->next;
 		}
 		cur = cur->next;
@@ -46,7 +67,8 @@ int			check_args(int ac, char **args)
 			while (temp[j])
 				if (!digit_her(temp[j++]))
 				{
-					write(1, "Error\n", 6);
+					free_her(temp);
+					ft_putendl("Error");
 					return (0);
 				}
 			free_her(temp);

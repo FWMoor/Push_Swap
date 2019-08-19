@@ -6,7 +6,7 @@ SRCDR =				srcs/
 
 FTDR =				libft/
 
-CHFL =				checker.c lists.c checks.c sort.c
+CHFL =				checker.c lists.c checks.c coms.c read.c
 
 FTFL =				ft_charcon.c ft_extra.c ft_flags.c ft_isfuncs.c \
 					ft_lstcreate.c ft_itoas.c ft_lstmod.c ft_math.c \

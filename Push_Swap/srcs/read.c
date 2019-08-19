@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:50:46 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/19 13:02:06 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/19 20:01:21 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ int			sort_list(t_stack *stacka)
 		return (0);
 	while (get_next_line(0, &line) > 0)
 	{
-		ft_printf("hey\n");
+		swap(&stacka);
 		free(line);
 	}
+	check_sort(&stacka);
+	list_del(&stacka);
 	return (1);
 }
