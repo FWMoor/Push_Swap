@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/19 12:55:53 by fremoor          ###   ########.fr       */
+/*   Created: 2019/08/19 12:50:46 by fremoor           #+#    #+#             */
+/*   Updated: 2019/08/19 13:02:06 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/push_swap.h"
 
-# include "../libft/libft.h"
-
-typedef struct		s_stack
+int			sort_list(t_stack *stacka)
 {
-	int				val;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}					t_stack;
+	char	*line;
 
-t_stack				*set_list(int num);
-int					check_dups(t_stack *list);
-int					sort_list(t_stack *stacka);
-int					check_args(int ac, char **args);
-void				list_add(t_stack **list, int num);
-void				list_del(t_stack **list);
-
-#endif
+	if (check_dups(stacka))
+		return (0);
+	while (get_next_line(0, &line) > 0)
+	{
+		ft_printf("hey\n");
+		free(line);
+	}
+	return (1);
+}
