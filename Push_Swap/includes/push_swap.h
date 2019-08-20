@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/19 19:57:51 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/20 11:36:36 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct		s_stack
 }					t_stack;
 
 t_stack				*set_list(int num);
+t_stack				*stack_init(char **av);
 int					check_dups(t_stack *list);
 int					sort_list(t_stack *stacka);
 void				swap(t_stack **stack);
