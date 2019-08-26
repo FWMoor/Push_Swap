@@ -3,31 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/20 11:34:01 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/26 21:17:40 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int			check_sort(t_stack **stacka)
+int			check_sort(t_stack **stacka, t_stack **stackb)
 {
+	int		i;
 	t_stack	*temp;
 
+	i = 1;
+	if (*stackb)
+		i = 0;
 	temp = *stacka;
 	while (temp->next)
 	{
 		if (temp->val > temp->next->val)
-		{
-			ft_putendl("KO");
-			return (1);
-		}
+			i = 0;
 		temp = temp->next;
 	}
-	ft_putendl("OK");
-	return (1);
+	if (i == 0)
+	{
+		list_del(stacka);
+		list_del(stackb);
+		ft_putendl("KO");
+	}
+	else
+		ft_putendl("OK");
+	return (i);
 }
 
 int			check_dups(t_stack *list)

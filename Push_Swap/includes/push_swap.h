@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/20 11:36:36 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/26 21:08:09 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@ typedef struct		s_stack
 t_stack				*set_list(int num);
 t_stack				*stack_init(char **av);
 int					check_dups(t_stack *list);
-int					sort_list(t_stack *stacka);
+int					sort_list(t_stack *stacka, t_stack *stackb);
 void				swap(t_stack **stack);
-int					check_sort(t_stack **stacka);
+void				push(t_stack **to, t_stack **from);
+void				rotate(t_stack **stack);
+int					check_sort(t_stack **stacka, t_stack **stackb);
 void				pstack(t_stack **stack);
 int					check_args(int ac, char **args);
 void				list_add(t_stack **list, int num);
 void				list_del(t_stack **list);
+void				head_add(t_stack **list, t_stack *node);
 
 #endif

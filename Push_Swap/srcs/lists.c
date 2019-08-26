@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lists.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 11:03:10 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/20 11:36:22 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/26 20:19:09 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_stack		*stack_init(char **av)
 	t_stack	*head;
 	t_stack	*node;
 
-	i = 0;
+	i = 1;
 	head = add_nodes(ft_atoi(av[i++]));
 	while (av[i])
 	{
