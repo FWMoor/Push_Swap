@@ -6,7 +6,7 @@
 /*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:50:46 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/26 21:08:03 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/26 21:20:56 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ void		check_line(char *line, t_stack **a, t_stack **b)
 	{
 		rotate(a);
 		rotate(b);
+	}
+	else if (ft_strequ(line, "rra"))
+		rev_rotate(a);
+	else if (ft_strequ(line, "rrb"))
+		rev_rotate(b);
+	else if (ft_strequ(line, "rrr"))
+	{
+		rev_rotate(a);
+		rev_rotate(b);
 	}
 }
 

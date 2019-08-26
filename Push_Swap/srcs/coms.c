@@ -6,7 +6,7 @@
 /*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 19:27:55 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/08/26 21:08:15 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/26 21:23:14 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,26 @@ void		rotate(t_stack **stack)
 	first->next = NULL;
 	last->next = first;
 	first->prev = last;
+}
+
+void		rev_rotate(t_stack **stack)
+{
+	t_stack	*last;
+	t_stack	*prev;
+
+	if ((!*stack) || !(*stack)->next)
+		return ;
+	last = *stack;
+	prev = NULL;
+	while (last->next != NULL)
+	{
+		prev = last;
+		last = last->next;
+	}
+	prev->next = NULL;
+	last->prev = NULL;
+	last->next = *stack;
+	*stack = last;
 }
 
 void		push(t_stack **to, t_stack **from)
