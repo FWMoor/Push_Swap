@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/26 21:21:09 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/27 09:03:35 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void				push(t_stack **to, t_stack **from);
 void				rotate(t_stack **stack);
 void				rev_rotate(t_stack **stack);
 int					check_sort(t_stack **stacka, t_stack **stackb);
-void				pstack(t_stack **stack);
+void				pstack(t_stack *stacka, t_stack *stackb);
 int					check_args(int ac, char **args);
+void				exit_com(t_stack **stacka, t_stack **stackb);
 void				list_add(t_stack **list, int num);
 void				list_del(t_stack **list);
 void				head_add(t_stack **list, t_stack *node);

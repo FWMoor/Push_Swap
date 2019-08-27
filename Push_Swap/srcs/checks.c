@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/26 21:17:40 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/27 09:17:23 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void		exit_com(t_stack **stacka, t_stack **stackb)
+{
+	ft_putendl("Error");
+	list_del(stacka);
+	list_del(stackb);
+	exit(0);
+}
 
 int			check_sort(t_stack **stacka, t_stack **stackb)
 {
@@ -20,19 +28,19 @@ int			check_sort(t_stack **stacka, t_stack **stackb)
 	i = 1;
 	if (*stackb)
 		i = 0;
-	temp = *stacka;
-	while (temp->next)
+	if (*stacka)
 	{
-		if (temp->val > temp->next->val)
-			i = 0;
-		temp = temp->next;
+		temp = *stacka;
+		while (temp->next)
+		{
+			if (temp->val > temp->next->val)
+				i = 0;
+			temp = temp->next;
+		}
 	}
+	pstack(*stacka, *stackb);
 	if (i == 0)
-	{
-		list_del(stacka);
-		list_del(stackb);
-		ft_putendl("KO");
-	}
+		exit_com(stacka, stackb);
 	else
 		ft_putendl("OK");
 	return (i);
@@ -69,17 +77,17 @@ int			check_args(int ac, char **args)
 
 	i = 1;
 	while (i < ac)
-		{
-			j = 0;
-			temp = ft_strsplit(args[i++], ' ');
-			while (temp[j])
-				if (!digit_her(temp[j++]))
-				{
-					free_her(temp);
-					ft_putendl("Error");
-					return (0);
-				}
-			free_her(temp);
-		}
+	{
+		j = 0;
+		temp = ft_strsplit(args[i++], ' ');
+		while (temp[j])
+			if (!digit_her(temp[j++]))
+			{
+				free_her(temp);
+				ft_putendl("Error");
+				return (0);
+			}
+		free_her(temp);
+	}
 	return (1);
 }

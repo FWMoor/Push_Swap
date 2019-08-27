@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lists.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 11:03:10 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/26 20:19:09 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/27 08:19:23 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,26 @@ void		list_del(t_stack **list)
 t_stack		*stack_init(char **av)
 {
 	int		i;
+	int		j;
+	char	**cur;
 	t_stack	*head;
 	t_stack	*node;
 
 	i = 1;
-	head = add_nodes(ft_atoi(av[i++]));
+	j = 0;
+	cur = ft_strsplit(av[i++], ' ');
+	head = add_nodes(ft_atoi(cur[j++]));
 	while (av[i])
 	{
-		node = add_nodes(ft_atoi(av[i++]));
-		tail_add(&head, node);
+		j = 0;
+		cur = ft_strsplit(av[i], ' ');
+		while (cur[j])
+		{
+			node = add_nodes(ft_atoi(cur[j++]));
+			tail_add(&head, node);
+		}
+		i++;
+		free_her(cur);
 	}
 	return (head);
 }

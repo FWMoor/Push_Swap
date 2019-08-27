@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   coms.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 19:27:55 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/08/26 21:23:14 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/27 09:01:59 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,6 @@ void		push(t_stack **to, t_stack **from)
 		if (!to)
 			head_add(to, temp);
 		else if (to)
-			head_add(to, temp);		
-	}
-}
-
-void		pstack(t_stack **stack)
-{
-	t_stack	*temp;
-
-	temp = *stack;
-	while (temp)
-	{
-		ft_printf("%d\n", temp->val);
-		temp = temp->next;
+			head_add(to, temp);
 	}
 }
