@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:50:46 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 08:48:06 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/27 09:29:49 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		check_line(char *line, t_stack **a, t_stack **b)
 		rev_rotate(b);
 	}
 	else
-		exit_com(a, b);
+		exit_com(a, b, "Error");
 }
 
 int			sort_list(t_stack *stacka, t_stack *stackb)

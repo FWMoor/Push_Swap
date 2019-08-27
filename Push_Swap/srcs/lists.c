@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 11:03:10 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 08:19:23 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/27 09:36:49 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,22 +83,20 @@ t_stack		*stack_init(char **av)
 	int		j;
 	char	**cur;
 	t_stack	*head;
-	t_stack	*node;
 
 	i = 1;
-	j = 0;
-	cur = ft_strsplit(av[i++], ' ');
-	head = add_nodes(ft_atoi(cur[j++]));
+	head = NULL;
 	while (av[i])
 	{
 		j = 0;
-		cur = ft_strsplit(av[i], ' ');
+		cur = ft_strsplit(av[i++], ' ');
 		while (cur[j])
 		{
-			node = add_nodes(ft_atoi(cur[j++]));
-			tail_add(&head, node);
+			if (head == NULL)
+				head = add_nodes(ft_atoi(cur[j++]));
+			else
+				tail_add(&head, add_nodes(ft_atoi(cur[j++])));
 		}
-		i++;
 		free_her(cur);
 	}
 	return (head);

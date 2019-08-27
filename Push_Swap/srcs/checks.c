@@ -6,15 +6,15 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 09:17:23 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/27 09:29:38 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		exit_com(t_stack **stacka, t_stack **stackb)
+void		exit_com(t_stack **stacka, t_stack **stackb, char *str)
 {
-	ft_putendl("Error");
+	ft_putendl(str);
 	list_del(stacka);
 	list_del(stackb);
 	exit(0);
@@ -40,7 +40,7 @@ int			check_sort(t_stack **stacka, t_stack **stackb)
 	}
 	pstack(*stacka, *stackb);
 	if (i == 0)
-		exit_com(stacka, stackb);
+		exit_com(stacka, stackb, "KO");
 	else
 		ft_putendl("OK");
 	return (i);
