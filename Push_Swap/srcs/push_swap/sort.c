@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 14:35:20 by fremoor          ###   ########.fr       */
+/*   Created: 2019/08/27 14:18:48 by fremoor           #+#    #+#             */
+/*   Updated: 2019/08/27 14:31:06 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-
-
-int			main(int ac, char **av)
+void		sort_3(t_stack **stack)
 {
-	int		i;
-	t_stack	*stacka;
-	t_stack	*stackb;
+	int		n1;
+	int		n2;
+	int		n3;
+	t_stack	*temp;
 
-	stacka = NULL;
-	stackb = NULL;
-	i = 1;
-	if (ac == 1)
-		return (0);
+	temp = *stack;
+	n1 = temp->val;
+	n2 = temp->next->val;
+	n3 = temp->next->next->val;
+	if (n1 > n2 && n1 < n3 && n2 < n3)
+		swap(stack);
+	else if (n1 > n2 && n2 < n3 && n1 > n3)
+		rotate(stack);
+	else if (n1 < n2 && n2 < n3 && n1 > n3)
+		rev_rotate(stack);
+	else if (n1 > n2 && n2 > n1 && n1 > n3)
+	{
+		swap(stack);
+		rev_rotate(stack);
+	}
 	else
 	{
-		if (check_args(ac, av))
-		{
-			stacka = stack_init(av);
-			if (list_size(stacka) == 3)
-				sort_3(&stacka);
-		}
+		swap(stack);
+		rotate(stack);
 	}
-	return (0);
 }
+
+

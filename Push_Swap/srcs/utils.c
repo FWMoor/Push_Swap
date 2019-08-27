@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 14:35:20 by fremoor          ###   ########.fr       */
+/*   Created: 2019/08/27 14:32:37 by fremoor           #+#    #+#             */
+/*   Updated: 2019/08/27 14:33:46 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-
-
-int			main(int ac, char **av)
+int			list_size(t_stack *stack)
 {
-	int		i;
-	t_stack	*stacka;
-	t_stack	*stackb;
+	int		len;
+	t_stack	*temp;
 
-	stacka = NULL;
-	stackb = NULL;
-	i = 1;
-	if (ac == 1)
+	if (!stack)
 		return (0);
-	else
+	temp = stack;
+	len = 0;
+	while (temp)
 	{
-		if (check_args(ac, av))
-		{
-			stacka = stack_init(av);
-			if (list_size(stacka) == 3)
-				sort_3(&stacka);
-		}
+		len++;
+		temp = temp->next;
 	}
-	return (0);
+	return (len);
 }
