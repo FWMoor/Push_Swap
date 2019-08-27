@@ -6,11 +6,11 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:50:46 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 09:29:49 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/27 14:08:24 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void		rotate_her(char *line, t_stack **a, t_stack **b)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 09:23:42 by fremoor          ###   ########.fr       */
+/*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
+/*   Updated: 2019/08/27 14:07:56 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int			main(int ac, char **av)
 {
@@ -28,8 +28,6 @@ int			main(int ac, char **av)
 		if (check_args(ac, av))
 		{
 			stacka = stack_init(av);
-			if (sort_list(stacka, stackb) == 0)
-				ft_putendl("Error");
 		}
 	}
 	return (0);

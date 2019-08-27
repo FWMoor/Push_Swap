@@ -1,50 +1,48 @@
-NAME_CHECKER =		checker
+NAME_P = push_swap
+NAME_C = checker
 
-FLAG =				-Wall -Werror -Wextra -I 
+S_DIR = ./srcs/
+C_DIR = ./srcs/checker/
+P_DIR = ./srcs/push_swap/
 
-SRCDR =				srcs/
+LIBRARY_NAME = libftprintf.a
+LIBRARY_DIR = ./libft/
+LIBRARY = $(addprefix $(LIBRARY_DIR), $(LIBRARY_NAME))
 
-FTDR =				libft/
+FLAGS = -Wall -Werror -Wextra
 
-CHFL =				checker.c lists.c checks.c coms.c read.c print.c
+CHECK_FUNC =	$(C_DIR)checker.c $(C_DIR)read.c $(S_DIR)lists.c \
+				$(S_DIR)checks.c $(S_DIR)coms.c $(S_DIR)print.c
 
-FTFL =				ft_charcon.c ft_extra.c ft_flags.c ft_isfuncs.c \
-					ft_lstcreate.c ft_itoas.c ft_lstmod.c ft_math.c \
-					ft_memclr.c ft_memset.c ft_mid_num.c ft_mid_str.c \
-					ft_numlens.c ft_printf.c ft_putchars.c ft_putnbrs.c \
-					ft_putstrs.c ft_strclrs.c ft_strcmps.c ft_strcpys.c \
-					ft_strfill.c ft_strfinds.c ft_strjoins.c ft_strmods.c \
-					ft_strscon.c get_next_line.c
+PUSH_FUNC = 	$(P_DIR)push_swap.c $(S_DIR)lists.c $(S_DIR)checks.c
 
-CHSR =				$(addprefix $(SRCDR), $(CHFL))
+CHECK_OBJECTS = $(CHECK_FUNC:.c=.o)
+PUSH_OBJECTS = $(PUSH_FUNC:.c=.o)
 
-FTSR =				$(addprefix $(FTDR), $(FTFL))
+all: $(NAME_P) $(NAME_C)
 
-CHOBJ =				$(CHSR:.c=.o)
-LOBJ =				$(FTSR:.c=.o)
+$(NAME_C): $(LIBRARY_NAME) 
+	@gcc $(FLAGS) -o $(NAME_C) $(CHECK_FUNC) $(LIBRARY) 
+	@echo "Checker Built!"
 
-all: $(NAME_CHECKER)
+$(NAME_P): $(LIBRARY_NAME) 
+	@gcc $(FLAGS) -o $(NAME_P) $(PUSH_FUNC) $(LIBRARY) 
+	@echo "Push_Swap Built!"
 
-$(CHOBJ): %.o: %.c
-	@gcc -c $(FLAG) $(SRCDR) $< -o $@
-
-$(LOBJ): %.o: %.c
-	@gcc -c $(FLAG) $(FTDR) $< -o $@
-
-$(NAME_CHECKER): $(LOBJ) $(CHOBJ)
-	@make -C $(FTDR)
-	@gcc $(FLAGS) -o $(NAME_CHECKER) $(CHSR) $(FTDR)libftprintf.a
-	@echo "\033[32mBin \033[1;32m$(NAME_CHECKER)\033[1;0m\033[32m Created.\033[0m"
+$(LIBRARY_NAME):
+	@make -C $(LIBRARY_DIR)
+	@echo "Libft Built!"
 
 clean:
-	@/bin/rm -rf $(SRCDR)*.o
-	@/bin/rm -rf $(FTDR)*.o $(FTDR)libftprintf.a
-	@echo "\033[1;31mObjects Files Removed.\033[0m"
+	@echo "Removing Objects..."
+	@/bin/rm -rf $(S_DIR)*.o $(C_DIR)*.o $(P_DIR)*.o
+	@make clean -C $(LIBRARY_DIR)
+	@echo "Clean complete!"
 
 fclean: clean
-	@/bin/rm -rf $(NAME_CHECKER)
-	@echo "\033[31mBin \033[1;31m$(NAME_CHECKER)\033[1;0m\033[31m Removed.\033[0m"
+	@echo "Removing Objects..."
+	@/bin/rm -f $(NAME_P) $(NAME_C)
+	@make fclean -C $(LIBRARY_DIR)
+	@echo "Fclean complete!"
 
 re: fclean all
-
-.PHONY: all fclean clean re
