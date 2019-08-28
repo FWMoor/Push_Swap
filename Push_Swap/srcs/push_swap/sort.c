@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:18:48 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 11:32:28 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:53:41 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		sort_2(t_stack **stack)
 	if ((*stack)->val > (*stack)->next->val)
 	{
 		ft_putendl("sa");
-		swap(stack);
+		swap(stack, 1, "sa");
 	}
 }
 
@@ -34,33 +34,20 @@ void		sort_3(t_stack **stack)
 	n3 = temp->next->next->val;
 	if (n1 > n2 && n1 > n3 && n3 < n2)
 	{
-		ft_putendl("sa");
-		swap(stack);
-		ft_putendl("rra");
-		rev_rotate(stack);
+		swap(stack, 1, "sa");
+		rev_rotate(stack, 1, "sa");
 	}
 	else if (n1 < n2 && n2 > n3 && n3 > n1)
 	{
-		ft_putendl("sa");
-		swap(stack);
-		ft_putendl("ra");
-		rotate(stack);
+		swap(stack, 1, "sa");
+		rotate(stack, 1, "ra");
 	}
 	else if (n1 > n2 && n1 < n3 && n3 > n2)
-	{
-		ft_putendl("sa");
-		swap(stack);
-	}
+		swap(stack, 1, "sa");
 	else if (n1 > n3 && n3 > n2 && n1 > n2)
-	{
-		ft_putendl("ra");
-		rotate(stack);
-	}
+		rotate(stack, 1, "ra");
 	else if (n3 < n1 && n3 < n2 && n1 < n2)
-	{
-		ft_putendl("rra");
-		rev_rotate(stack);
-	}
+		rev_rotate(stack, 1, "rra");
 }
 
 void		sort_5(t_stack **stacka, t_stack **stackb)
@@ -77,9 +64,6 @@ void		sort_5(t_stack **stacka, t_stack **stackb)
 		push_small(stacka, stackb, pos);
 	}
 	sort_3(stacka);
-	while(i-- > 0)
-	{
-		ft_putendl("pa");
-		push(stacka, stackb);
-	}
+	while (i-- > 0)
+		push(stacka, stackb, 1, "pa");
 }

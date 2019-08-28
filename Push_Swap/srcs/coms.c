@@ -6,13 +6,13 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 19:27:55 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/08/28 08:09:38 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:51:57 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		swap(t_stack **stack)
+void		swap(t_stack **stack, int p, char *s)
 {
 	int		i;
 	t_stack	*temp;
@@ -23,10 +23,12 @@ void		swap(t_stack **stack)
 		i = temp->val;
 		temp->val = temp->next->val;
 		temp->next->val = i;
+		if (p == 1)
+			ft_putendl(s);
 	}
 }
 
-void		rotate(t_stack **stack)
+void		rotate(t_stack **stack, int p, char *s)
 {
 	t_stack	*first;
 	t_stack	*last;
@@ -41,9 +43,11 @@ void		rotate(t_stack **stack)
 	first->next = NULL;
 	last->next = first;
 	first->prev = last;
+	if (p == 1)
+		ft_putendl(s);
 }
 
-void		rev_rotate(t_stack **stack)
+void		rev_rotate(t_stack **stack, int p, char *s)
 {
 	t_stack	*last;
 	t_stack	*prev;
@@ -61,9 +65,11 @@ void		rev_rotate(t_stack **stack)
 	last->prev = NULL;
 	last->next = *stack;
 	*stack = last;
+	if (p == 1)
+		ft_putendl(s);
 }
 
-void		push(t_stack **to, t_stack **from)
+void		push(t_stack **to, t_stack **from, int p, char *s)
 {
 	t_stack *temp;
 
@@ -82,5 +88,7 @@ void		push(t_stack **to, t_stack **from)
 			head_add(to, temp);
 		else if (to)
 			head_add(to, temp);
+		if (p)
+			ft_putendl(s);
 	}
 }

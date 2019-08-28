@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:32:37 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 11:32:55 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/28 12:49:08 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +69,12 @@ void		push_small(t_stack **stacka, t_stack **stackb, int pos)
 	{
 		pos = len - pos;
 		while (pos-- != 0)
-		{
-			ft_putendl("rra");
-			rev_rotate(stacka);
-		}
+			rev_rotate(stacka, 1, "rra");
 	}
 	else if (pos <= len / 2)
 	{
 		while (pos-- != 0)
-		{
-			ft_putendl("ra");
-			rotate(stacka);
-		}
+			rotate(stacka, 1, "ra");
 	}
-	ft_putendl("pb");
-	push(stackb, stacka);
+	push(stackb, stacka, 1, "pb");
 }

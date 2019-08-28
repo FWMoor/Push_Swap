@@ -6,13 +6,11 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 10:42:05 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/28 13:19:47 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-
 
 int			main(int ac, char **av)
 {
@@ -38,6 +36,7 @@ int			main(int ac, char **av)
 					sort_3(&stacka);
 				else if (list_size(stacka) > 3)
 					sort_5(&stacka, &stackb);
+				//pstack(stacka, stackb);
 			}
 		}
 	}
