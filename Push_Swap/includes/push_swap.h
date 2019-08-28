@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 08:28:10 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/28 10:43:07 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ int					check_sort(t_stack **stacka, t_stack **stackb);
 void				pstack(t_stack *stacka, t_stack *stackb);
 int					check_args(int ac, char **args);
 int					list_size(t_stack *stack);
+void				sort_2(t_stack **stack);
 void				sort_3(t_stack **stack);
 void				sort_5(t_stack **stacka, t_stack **stackb);
+int					small_num(t_stack **stack);
+int					small_pos(t_stack **stack, int num);
+void				push_small(t_stack **stacka, t_stack **stackb, int pos);
 void				exit_com(t_stack **stacka, t_stack **stackb, char *str);
 void				list_add(t_stack **list, int num);
 void				list_del(t_stack **list);

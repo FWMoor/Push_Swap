@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:32:37 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 14:33:46 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/28 11:32:55 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,61 @@ int			list_size(t_stack *stack)
 		temp = temp->next;
 	}
 	return (len);
+}
+
+int			small_pos(t_stack **stack, int num)
+{
+	int		i;
+	t_stack	*temp;
+
+	i = 0;
+	temp = *stack;
+	while (temp->val != num)
+	{
+		i++;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+int			small_num(t_stack **stack)
+{
+	int		i;
+	t_stack	*temp;
+
+	temp = *stack;
+	i = temp->val;
+	while (temp)
+	{
+		if (temp->val < i)
+			i = temp->val;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+void		push_small(t_stack **stacka, t_stack **stackb, int pos)
+{
+	int		len;
+
+	len = list_size(*stacka);
+	if (pos > len / 2)
+	{
+		pos = len - pos;
+		while (pos-- != 0)
+		{
+			ft_putendl("rra");
+			rev_rotate(stacka);
+		}
+	}
+	else if (pos <= len / 2)
+	{
+		while (pos-- != 0)
+		{
+			ft_putendl("ra");
+			rotate(stacka);
+		}
+	}
+	ft_putendl("pb");
+	push(stackb, stacka);
 }

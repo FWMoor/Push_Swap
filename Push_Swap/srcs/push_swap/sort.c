@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:18:48 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 08:42:34 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/28 11:32:28 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,7 @@
 
 void		sort_2(t_stack **stack)
 {
-	int		n1;
-	int		n2;
-	t_stack	*temp;
-
-	temp = *stack;
-	n1 = temp->val;
-	n2 = temp->next->val;
-	if (n2 > n1)
+	if ((*stack)->val > (*stack)->next->val)
 	{
 		ft_putendl("sa");
 		swap(stack);
@@ -72,11 +65,21 @@ void		sort_3(t_stack **stack)
 
 void		sort_5(t_stack **stacka, t_stack **stackb)
 {
+	int		i;
+	int		pos;
 	int		size;
-	t_stack	*node;
 
-	(void)stackb;
-	node = *stacka;
-	size = list_size(node);
-	ft_putnbr(size);
+	size = list_size(*stacka);
+	i = 0;
+	while (i++ < (size - 3))
+	{
+		pos = small_pos(stacka, small_num(stacka));
+		push_small(stacka, stackb, pos);
+	}
+	sort_3(stacka);
+	while(i-- > 0)
+	{
+		ft_putendl("pa");
+		push(stacka, stackb);
+	}
 }
