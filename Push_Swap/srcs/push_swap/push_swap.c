@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 20:22:08 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/08/28 08:30:12 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,9 @@ int			main(int ac, char **av)
 			if (!check_dups(stacka))
 			{
 				if (list_size(stacka) == 3)
-				{
-					//pstack(stacka, stackb);
 					sort_3(&stacka);
-					//pstack(stacka, stackb);
-				}
+				else if (list_size(stacka) > 3)
+					sort_5(&stacka, &stackb);
 			}
 		}
 	}
