@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/18 19:46:50 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/08/19 10:20:53 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 13:05:33 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		ft_num_len(intmax_t n, int base)
 	int i;
 
 	i = 1;
+	if (n < 0)
+		i++;
 	while (n /= base)
 		i++;
 	return (i);
