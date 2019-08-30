@@ -6,19 +6,16 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:18:48 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 12:53:41 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:04:11 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void		sort_2(t_stack **stack)
 {
 	if ((*stack)->val > (*stack)->next->val)
-	{
-		ft_putendl("sa");
 		swap(stack, 1, "sa");
-	}
 }
 
 void		sort_3(t_stack **stack)
@@ -35,7 +32,7 @@ void		sort_3(t_stack **stack)
 	if (n1 > n2 && n1 > n3 && n3 < n2)
 	{
 		swap(stack, 1, "sa");
-		rev_rotate(stack, 1, "sa");
+		rev_rotate(stack, 1, "rra");
 	}
 	else if (n1 < n2 && n2 > n3 && n3 > n1)
 	{

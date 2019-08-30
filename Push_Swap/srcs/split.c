@@ -6,11 +6,11 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 08:15:29 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 15:28:55 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:04:20 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void		rotate_x(t_stack **h, char c, int pos)
 {

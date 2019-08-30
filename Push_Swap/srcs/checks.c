@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 13:17:40 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:02:14 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int			check_dups(t_stack *list)
 		{
 			if (temp->val == cur->val)
 			{
-				list_del(&list);
+				ft_putendl("Error");
 				return (1);
 			}
 			temp = temp->next;
