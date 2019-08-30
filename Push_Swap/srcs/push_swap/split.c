@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 08:15:29 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 13:17:29 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 15:13:03 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void		sort_larger(t_stack **stacka, t_stack **stackb)
 	i = 1;
 	while (*stacka)
 	{
-		max += 45;
+		max += 20;
 		while (i <= max)
 		{
 			if (!(*stacka))

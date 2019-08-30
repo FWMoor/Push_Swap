@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 12:56:38 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 14:53:56 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ typedef struct		s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-t_stack				*set_list(int num);
 t_stack				*stack_init(char **av);
 void				norm(t_stack **stacka);
 int					check_dups(t_stack *list);

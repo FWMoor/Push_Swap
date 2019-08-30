@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 13:18:01 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 14:21:46 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ int			main(int ac, char **av)
 		ft_putendl("OK");
 	else
 		ft_putendl("KO");
-	//pstack(stacka, stackb);
+	pstack(stacka, stackb);
 	return (0);
 }
