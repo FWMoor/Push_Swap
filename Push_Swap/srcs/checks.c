@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 12:38:24 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 12:56:23 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,22 @@ void		exit_com(t_stack **stacka, t_stack **stackb, char *str)
 	exit(0);
 }
 
-int			check_sort(t_stack **stacka, t_stack **stackb)
+int			check_sort(t_stack *stack)
 {
 	int		i;
 	t_stack	*temp;
 
-	i = 1;
-	if (*stackb)
-		i = 0;
-	if (*stacka)
+	if (!stack)
+		return (0);
+	temp = stack;
+	while (temp->next)
 	{
-		temp = *stacka;
-		while (temp->next)
-		{
-			if (temp->val > temp->next->val)
-				i = 0;
-			temp = temp->next;
-		}
+		i = temp->val;
+		temp = temp->next;
+		if (i > temp->val)
+			return (0);
 	}
-	if (i == 0)
-		exit_com(stacka, stackb, "KO");
-	else
-		ft_putendl("OK");
-	return (i);
+	return (1);
 }
 
 int			check_dups(t_stack *list)

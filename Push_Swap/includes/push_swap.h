@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 11:57:34 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 12:56:38 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void				swap(t_stack **stack, int p, char *s);
 void				push(t_stack **to, t_stack **from, int p, char *s);
 void				rotate(t_stack **stack, int p, char *s);
 void				rev_rotate(t_stack **stack, int p, char *s);
-int					check_sort(t_stack **stacka, t_stack **stackb);
+int					check_sort(t_stack *stack);
 void				pstack(t_stack *stacka, t_stack *stackb);
 int					check_args(int ac, char **args);
 int					list_size(t_stack *stack);
