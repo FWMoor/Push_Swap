@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 11:03:10 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/27 14:04:14 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 10:12:09 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack		*add_nodes(int num)
 		return (NULL);
 	new->prev = NULL;
 	new->val = num;
+	new->norm = -1;
 	new->next = NULL;
 	return (new);
 }

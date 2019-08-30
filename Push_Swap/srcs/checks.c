@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 13:13:15 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 10:50:10 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ int			check_sort(t_stack **stacka, t_stack **stackb)
 	t_stack	*temp;
 
 	i = 1;
-	if (*stackb)
-		i = 0;
+	if (list_size(*stackb))
+		return(0);
 	if (*stacka)
 	{
 		temp = *stacka;
@@ -38,11 +38,6 @@ int			check_sort(t_stack **stacka, t_stack **stackb)
 			temp = temp->next;
 		}
 	}
-	// pstack(*stacka, *stackb);
-	if (i == 0)
-		exit_com(stacka, stackb, "KO");
-	else
-		ft_putendl("OK");
 	return (i);
 }
 

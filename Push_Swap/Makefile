@@ -11,7 +11,7 @@ LIBRARY = $(addprefix $(LIBRARY_DIR), $(LIBRARY_NAME))
 
 FLAGS = -Wall -Werror -Wextra
 
-CHECK_FUNC =	$(C_DIR)checker.c $(C_DIR)read.c $(S_DIR)lists.c \
+CHECK_FUNC =	$(S_DIR)checker.c $(S_DIR)lists.c $(S_DIR)utils.c \
 				$(S_DIR)checks.c $(S_DIR)coms.c $(S_DIR)print.c
 
 PUSH_FUNC = 	$(P_DIR)push_swap.c $(S_DIR)lists.c $(S_DIR)checks.c \

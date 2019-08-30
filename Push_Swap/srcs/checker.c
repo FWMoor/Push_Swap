@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 12:50:46 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 12:50:13 by fremoor          ###   ########.fr       */
+/*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
+/*   Updated: 2019/08/30 10:48:46 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void		rotate_her(char *line, t_stack **a, t_stack **b)
 {
@@ -62,7 +62,7 @@ void		check_line(char *line, t_stack **a, t_stack **b)
 		exit_com(a, b, "Error");
 }
 
-int			sort_list(t_stack *stacka, t_stack *stackb)
+int			get_args(t_stack *stacka, t_stack *stackb)
 {
 	char	*line;
 
@@ -75,4 +75,26 @@ int			sort_list(t_stack *stacka, t_stack *stackb)
 	}
 	check_sort(&stacka, &stackb);
 	return (1);
+}
+
+int			main(int ac, char **av)
+{
+	int		i;
+	t_stack	*stacka;
+	t_stack	*stackb;
+
+	stacka = NULL;
+	stackb = NULL;
+	i = 1;
+	if (ac == 1)
+		return (0);
+	if (check_args(ac, av))
+	{
+		stacka = stack_init(av);
+		if (!get_args(stacka, stackb))
+			ft_putendl("Error");
+		else
+			(!check_sort(&stacka, &stackb)) ? ft_putendl("KO") : ft_putendl("OK");
+	}
+	return (0);
 }

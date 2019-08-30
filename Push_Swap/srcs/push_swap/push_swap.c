@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 08:51:03 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 10:26:44 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int			main(int ac, char **av)
 		if (check_args(ac, av))
 		{
 			stacka = stack_init(av);
+			norm(&stacka);
 			if (!check_dups(stacka))
 			{
 				if (list_size(stacka) == 2)
@@ -37,8 +38,8 @@ int			main(int ac, char **av)
 				else if (list_size(stacka) <= 5)
 					sort_5(&stacka, &stackb);
 				else if (list_size(stacka) > 5)
-					quicksort(stacka, stackb);
-				pstack(stacka, stackb);
+					sort_larger(&stacka, &stackb);
+				//pstack(stacka, stackb);
 			}
 		}
 	}

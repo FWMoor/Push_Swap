@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:32:37 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 08:51:31 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 10:19:04 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,57 @@ int			small_num(t_stack **stack)
 	return (i);
 }
 
-int			last_num(t_stack **stack)
+int			large_num(t_stack **stack)
 {
+	int		i;
 	t_stack	*temp;
 
 	temp = *stack;
+	i = temp->val;
 	while (temp)
+	{
+		if (temp->val > i)
+			i = temp->val;
 		temp = temp->next;
-	return (temp->val);
+	}
+	return (i);
+}
+
+int			large_pos(t_stack **stack, int num)
+{
+	int		i;
+	t_stack	*temp;
+
+	i = 0;
+	temp = *stack;
+	while (temp->val != num)
+	{
+		i++;
+		temp = temp->next;
+	}
+	return (i);
+}
+
+void		norm(t_stack **stacka)
+{
+	int		n;
+	t_stack *slow;
+	t_stack	*fast;
+
+	slow = *stacka;
+	while (slow)
+	{
+		n = list_size(*stacka);
+		slow->norm = n;
+		fast = *stacka;
+		while (fast)
+		{
+			if (slow->val < fast->val)
+				slow->norm--;
+			fast = fast->next;
+		}
+		slow = slow->next;
+	}
 }
 
 void		push_small(t_stack **stacka, t_stack **stackb, int pos)
