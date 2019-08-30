@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 12:40:34 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 15:18:05 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int			main(int ac, char **av)
 		if (check_args(ac, av))
 		{
 			stacka = stack_init(av);
+			if (is_ordered(stacka) && !stackb)
+				return (0);
 			norm(&stacka);
 			if (!check_dups(stacka))
 			{
