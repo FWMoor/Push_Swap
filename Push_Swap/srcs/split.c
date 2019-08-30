@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 08:15:29 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 16:04:20 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 16:06:50 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,13 @@ void		rotate_x(t_stack **h, char c, int pos)
 	if (pos > size / 2)
 	{
 		pos = size - pos;
-		while (pos != 0)
-		{
+		while (pos-- != 0)
 			(c == 'a') ? rev_rotate(h, 1, "rra") : rev_rotate(h, 1, "rrb");
-			pos--;
-		}
 	}
 	else if (pos <= size / 2)
 	{
-		while (pos != 0)
-		{
+		while (pos-- != 0)
 			(c == 'a') ? rotate(h, 1, "ra") : rotate(h, 1, "rb");
-			pos--;
-		}
 	}
 }
 

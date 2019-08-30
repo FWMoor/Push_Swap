@@ -11,18 +11,20 @@ LIBRARY = $(addprefix $(LIBRARY_DIR), $(LIBRARY_NAME))
 
 FLAGS = -Wall -Werror -Wextra
 
-CHECK_FUNC =	$(S_DIR)checker.c $(S_DIR)lists.c $(S_DIR)utils.c \
-				$(S_DIR)checks.c $(S_DIR)coms.c $(S_DIR)print.c $(S_DIR)split.c
+CHECK_FILES =	checker.c lists.c utils.c checks.c coms.c print.c split.c
 
-PUSH_FUNC = 	$(S_DIR)push_swap.c $(S_DIR)lists.c $(S_DIR)checks.c \
-				$(S_DIR)utils.c $(S_DIR)sort.c $(S_DIR)coms.c $(S_DIR)print.c \
-				$(S_DIR)split.c
+PUSH_FILES = 	push_swap.c lists.c checks.c utils.c sort.c coms.c print.c \
+				split.c
 
 all: $(NAME_P) $(NAME_C)
+
+CHECK_FUNC = $(addprefix $(S_DIR), $(CHECK_FILES))
 
 $(NAME_C): $(LIBRARY_NAME) 
 	@gcc $(FLAGS) -o $(NAME_C) $(CHECK_FUNC) $(LIBRARY) 
 	@echo "\033[32mBinary \033[1;32m$(NAME_C)\033[1;0m\033[32m Created.\033[0m"
+
+PUSH_FUNC = $(addprefix $(S_DIR), $(PUSH_FILES))
 
 $(NAME_P): $(LIBRARY_NAME) 
 	@gcc $(FLAGS) -o $(NAME_P) $(PUSH_FUNC) $(LIBRARY) 
