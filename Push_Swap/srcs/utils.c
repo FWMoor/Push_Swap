@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:32:37 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 12:49:08 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 08:51:31 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,16 @@ int			small_num(t_stack **stack)
 		temp = temp->next;
 	}
 	return (i);
+}
+
+int			last_num(t_stack **stack)
+{
+	t_stack	*temp;
+
+	temp = *stack;
+	while (temp)
+		temp = temp->next;
+	return (temp->val);
 }
 
 void		push_small(t_stack **stacka, t_stack **stackb, int pos)

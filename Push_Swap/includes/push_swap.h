@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/28 12:47:02 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 08:50:51 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ typedef struct		s_stack
 
 t_stack				*set_list(int num);
 t_stack				*stack_init(char **av);
+int					last_num(t_stack **stack);
 int					check_dups(t_stack *list);
 int					sort_list(t_stack *stacka, t_stack *stackb);
+void				quicksort(t_stack *a, t_stack *b);
 void				swap(t_stack **stack, int p, char *s);
 void				push(t_stack **to, t_stack **from, int p, char *s);
 void				rotate(t_stack **stack, int p, char *s);

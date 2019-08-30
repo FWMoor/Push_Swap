@@ -15,7 +15,8 @@ CHECK_FUNC =	$(C_DIR)checker.c $(C_DIR)read.c $(S_DIR)lists.c \
 				$(S_DIR)checks.c $(S_DIR)coms.c $(S_DIR)print.c
 
 PUSH_FUNC = 	$(P_DIR)push_swap.c $(S_DIR)lists.c $(S_DIR)checks.c \
-				$(S_DIR)utils.c $(P_DIR)sort.c $(S_DIR)coms.c $(S_DIR)print.c
+				$(S_DIR)utils.c $(P_DIR)sort.c $(S_DIR)coms.c $(S_DIR)print.c \
+				$(P_DIR)split.c
 
 all: $(NAME_P) $(NAME_C)
 
