@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 13:06:33 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 13:18:01 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		swap_her(char *line, t_stack **a, t_stack **b)
 	}
 }
 
-void		check_line(char *line, t_stack **a, t_stack **b)
+void		arg_her(char *line, t_stack **a, t_stack **b)
 {
 	if (ft_strequ(line, "sa") || ft_strequ(line, "sb") || ft_strequ(line, "ss"))
 		swap_her(line, a, b);
@@ -62,16 +62,15 @@ void		check_line(char *line, t_stack **a, t_stack **b)
 		exit_com(a, b, "Error");
 }
 
-int			get_args(t_stack **stacka, t_stack **stackb)
+void		get_args(t_stack **stacka, t_stack **stackb)
 {
 	char	*line;
 
 	while (get_next_line(0, &line) > 0)
 	{
-		check_line(line, stacka, stackb);
+		arg_her(line, stacka, stackb);
 		free(line);
 	}
-	return (1);
 }
 
 int			main(int ac, char **av)
@@ -87,10 +86,10 @@ int			main(int ac, char **av)
 		return (0);
 	stacka = stack_init(av);
 	get_args(&stacka, &stackb);
-	if (check_sort(stacka) && !stackb)
+	if (is_ordered(stacka) && !stackb)
 		ft_putendl("OK");
 	else
 		ft_putendl("KO");
-	pstack(stacka, stackb);
+	//pstack(stacka, stackb);
 	return (0);
 }

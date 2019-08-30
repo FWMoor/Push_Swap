@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 12:56:23 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 13:17:40 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,15 @@ void		exit_com(t_stack **stacka, t_stack **stackb, char *str)
 	exit(0);
 }
 
-int			check_sort(t_stack *stack)
+int			is_ordered(t_stack *a)
 {
-	int		i;
 	t_stack	*temp;
 
-	if (!stack)
-		return (0);
-	temp = stack;
-	while (temp->next)
-	{
-		i = temp->val;
+	temp = a;
+	while (temp && temp->next && temp->val < temp->next->val)
 		temp = temp->next;
-		if (i > temp->val)
-			return (0);
-	}
+	if (temp && temp->next)
+		return (0);
 	return (1);
 }
 

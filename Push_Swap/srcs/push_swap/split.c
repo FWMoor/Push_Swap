@@ -6,23 +6,11 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 08:15:29 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 13:10:30 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 13:17:29 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-int			is_ordered(t_stack *a)
-{
-	t_stack	*temp;
-
-	temp = a;
-	while (temp && temp->next && temp->val < temp->next->val)
-		temp = temp->next;
-	if (temp && temp->next)
-		return (0);
-	return (1);
-}
 
 void		rotate_x(t_stack **h, char c, int pos)
 {
@@ -74,7 +62,7 @@ void		sort_larger(t_stack **stacka, t_stack **stackb)
 	i = 1;
 	while (*stacka)
 	{
-		max += 44;
+		max += 45;
 		while (i <= max)
 		{
 			if (!(*stacka))
