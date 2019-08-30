@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 19:27:55 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/08/28 12:51:57 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 12:31:04 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void		push(t_stack **to, t_stack **from, int p, char *s)
 
 	if (!*from)
 		return ;
-	if (from)
+	if (from != NULL)
 	{
 		temp = *from;
 		if ((*from)->next)
@@ -84,9 +84,9 @@ void		push(t_stack **to, t_stack **from, int p, char *s)
 			*from = NULL;
 		if (*from)
 			(*from)->prev = NULL;
-		if (!to)
+		if (to == NULL)
 			head_add(to, temp);
-		else if (to)
+		else if (to != NULL)
 			head_add(to, temp);
 		if (p)
 			ft_putendl(s);

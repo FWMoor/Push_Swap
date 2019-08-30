@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 10:39:38 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 11:57:34 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_stack				*set_list(int num);
 t_stack				*stack_init(char **av);
 void				norm(t_stack **stacka);
 int					check_dups(t_stack *list);
+int					is_ordered(t_stack *a);
 void				sort_larger(t_stack **stacka, t_stack **stackb);
 void				swap(t_stack **stack, int p, char *s);
 void				push(t_stack **to, t_stack **from, int p, char *s);

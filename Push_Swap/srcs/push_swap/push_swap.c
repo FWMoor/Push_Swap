@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 10:26:44 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/08/30 12:40:34 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int			main(int ac, char **av)
 	t_stack	*stacka;
 	t_stack	*stackb;
 
-	stacka = NULL;
 	stackb = NULL;
 	i = 1;
 	if (ac == 1)
@@ -39,9 +38,10 @@ int			main(int ac, char **av)
 					sort_5(&stacka, &stackb);
 				else if (list_size(stacka) > 5)
 					sort_larger(&stacka, &stackb);
-				//pstack(stacka, stackb);
 			}
 		}
+		list_del(&stacka);
+		list_del(&stackb);
 	}
 	return (0);
 }
