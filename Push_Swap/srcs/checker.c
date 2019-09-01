@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 16:03:21 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/01 21:56:07 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,13 @@ void		get_args(t_stack **stacka, t_stack **stackb)
 int			main(int ac, char **av)
 {
 	int		i;
+	t_env	env;
 	t_stack	*stacka;
 	t_stack	*stackb;
 
-	stacka = NULL;
-	stackb = NULL;
 	i = 1;
+	stackb = NULL;
+	args(&ac, &av, &env);
 	if (ac == 1 || !check_args(ac, av))
 		return (0);
 	stacka = stack_init(av);
@@ -90,6 +91,6 @@ int			main(int ac, char **av)
 		ft_putendl("OK");
 	else
 		ft_putendl("KO");
-	//pstack(stacka, stackb);
+	(env.vis) ? pstack(stacka, stackb) : 0;
 	return (0);
 }
