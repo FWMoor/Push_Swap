@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:32:37 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 10:19:04 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/01 14:16:01 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,23 @@ int			large_num(t_stack **stack)
 int			large_pos(t_stack **stack, int num)
 {
 	int		i;
-	t_stack	*temp;
+	int		pos;
+	t_stack	*node;
 
+	node = *stack;
 	i = 0;
-	temp = *stack;
-	while (temp->val != num)
+	pos = 0;
+	while (node)
 	{
+		if (node->norm == num)
+		{
+			pos = i;
+			break ;
+		}
+		node = node->next;
 		i++;
-		temp = temp->next;
 	}
-	return (i);
+	return (pos);
 }
 
 void		norm(t_stack **stacka)

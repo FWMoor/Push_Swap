@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 08:15:29 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 16:06:50 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/01 14:17:32 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void		push_b(t_stack **a, t_stack **b, int i, int max)
 	{
 		while (i > 0 && i >= max - 5)
 		{
-			pos = large_pos(b, large_num(b));
+			pos = large_pos(b, i);
 			rotate_x(b, 'b', pos);
 			push(a, b, 1, "pa");
 			i--;
