@@ -6,13 +6,13 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 19:27:55 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/08/30 12:31:04 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 08:41:49 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void		swap(t_stack **stack, int p, char *s)
+int			swap(t_stack **stack, int p, char *s)
 {
 	int		i;
 	t_stack	*temp;
@@ -25,16 +25,18 @@ void		swap(t_stack **stack, int p, char *s)
 		temp->next->val = i;
 		if (p == 1)
 			ft_putendl(s);
+		return (1);
 	}
+	return (0);
 }
 
-void		rotate(t_stack **stack, int p, char *s)
+int			rotate(t_stack **stack, int p, char *s)
 {
 	t_stack	*first;
 	t_stack	*last;
 
 	if ((!*stack) || !(*stack)->next)
-		return ;
+		return (0);
 	first = *stack;
 	last = *stack;
 	while (last->next != NULL)
@@ -45,15 +47,16 @@ void		rotate(t_stack **stack, int p, char *s)
 	first->prev = last;
 	if (p == 1)
 		ft_putendl(s);
+	return (1);
 }
 
-void		rev_rotate(t_stack **stack, int p, char *s)
+int			rev_rotate(t_stack **stack, int p, char *s)
 {
 	t_stack	*last;
 	t_stack	*prev;
 
 	if ((!*stack) || !(*stack)->next)
-		return ;
+		return (0);
 	last = *stack;
 	prev = NULL;
 	while (last->next != NULL)
@@ -67,14 +70,15 @@ void		rev_rotate(t_stack **stack, int p, char *s)
 	*stack = last;
 	if (p == 1)
 		ft_putendl(s);
+	return (1);
 }
 
-void		push(t_stack **to, t_stack **from, int p, char *s)
+int			push(t_stack **to, t_stack **from, int p, char *s)
 {
 	t_stack *temp;
 
 	if (!*from)
-		return ;
+		return (0);
 	if (from != NULL)
 	{
 		temp = *from;
@@ -90,5 +94,7 @@ void		push(t_stack **to, t_stack **from, int p, char *s)
 			head_add(to, temp);
 		if (p)
 			ft_putendl(s);
+		return (1);
 	}
+	return (0);
 }

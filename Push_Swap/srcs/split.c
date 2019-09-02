@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/30 08:15:29 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/01 14:17:32 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/09/02 08:13:30 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,31 +47,43 @@ void		push_b(t_stack **a, t_stack **b, int i, int max)
 	}
 }
 
-void		sort_larger(t_stack **stacka, t_stack **stackb)
+void		push_small(t_stack **stacka, t_stack **stackb, int pos)
 {
-	int		i;
-	int		max;
-	int		size;
+	int		len;
 
-	i = 1;
-	max = 0;
-	size = list_size(*stacka);
-	while (*stacka)
+	len = list_size(*stacka);
+	if (pos > len / 2)
 	{
-		max += (size <= 100) ? size / 5 : size / 11;
-		while (i <= max)
-		{
-			if (!(*stacka))
-				break ;
-			if ((*stacka)->norm <= max)
-			{
-				push(stackb, stacka, 1, "pb");
-				i++;
-			}
-			else
-				rotate(stacka, 1, "ra");
-		}
+		pos = len - pos;
+		while (pos-- != 0)
+			rev_rotate(stacka, 1, "rra");
 	}
-	i--;
-	push_b(stacka, stackb, i, max);
+	else if (pos <= len / 2)
+	{
+		while (pos-- != 0)
+			rotate(stacka, 1, "ra");
+	}
+	push(stackb, stacka, 1, "pb");
+}
+
+void		norm(t_stack **stacka)
+{
+	int		n;
+	t_stack *slow;
+	t_stack	*fast;
+
+	slow = *stacka;
+	while (slow)
+	{
+		n = list_size(*stacka);
+		slow->norm = n;
+		fast = *stacka;
+		while (fast)
+		{
+			if (slow->val < fast->val)
+				slow->norm--;
+			fast = fast->next;
+		}
+		slow = slow->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:18:48 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 16:04:11 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 08:12:41 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,33 @@ void		sort_5(t_stack **stacka, t_stack **stackb)
 	sort_3(stacka);
 	while (i-- > 0)
 		push(stacka, stackb, 1, "pa");
+}
+
+void		sort_larger(t_stack **stacka, t_stack **stackb)
+{
+	int		i;
+	int		max;
+	int		size;
+
+	i = 1;
+	max = 0;
+	size = list_size(*stacka);
+	while (*stacka)
+	{
+		max += (size <= 100) ? size / 5 : size / 11;
+		while (i <= max)
+		{
+			if (!(*stacka))
+				break ;
+			if ((*stacka)->norm <= max)
+			{
+				push(stackb, stacka, 1, "pb");
+				i++;
+			}
+			else
+				rotate(stacka, 1, "ra");
+		}
+	}
+	i--;
+	push_b(stacka, stackb, i, max);
 }

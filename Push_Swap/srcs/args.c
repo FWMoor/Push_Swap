@@ -3,19 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fwmoor <fwmoor@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 21:26:54 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/09/01 21:56:25 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/09/02 09:13:38 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void			understand_char(char c, t_env *flags)
+void			understand_char(char c, t_env *flags)
 {
-	if ('v' == c)
+	if (c == 'v')
 		flags->vis = 1;
+	else if (c == 'u')
+		puse();
+	else if (c == 'c')
+		flags->col = 1;
+	else if (c == 's')
+		flags->step = 1;
+	else if (c == 'm')
+		flags->mov = 1;
+	else
+		puse();
 }
 
 void			short_arg(char *str, t_env *flags)
@@ -49,5 +59,8 @@ void			args(int *ac, char ***av, t_env *env)
 	pos -= 1;
 	*ac -= pos;
 	*av += pos;
-
+	if (env->mov && env->vis != 1)
+		env->mov = 0;
+	if (env->step && env->vis != 1)
+		env->step = 0;
 }
