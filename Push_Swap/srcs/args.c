@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 21:26:54 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/09/02 09:13:38 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 09:35:14 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void			understand_char(char c, t_env *flags)
 		flags->step = 1;
 	else if (c == 'm')
 		flags->mov = 1;
+	else if (c == 'o')
+		flags->opp = 1;
 	else
 		puse();
 }
@@ -63,4 +65,6 @@ void			args(int *ac, char ***av, t_env *env)
 		env->mov = 0;
 	if (env->step && env->vis != 1)
 		env->step = 0;
+	if (env->opp && env->vis != 1)
+		env->opp = 0;
 }

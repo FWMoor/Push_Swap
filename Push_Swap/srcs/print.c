@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:01:35 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/02 09:27:52 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 09:56:21 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,50 +32,70 @@ void		plines(t_env *env, int i)
 	{
 		ft_putstr("\e[1;1H\e[2J");
 		ft_printf("-----------------------");
-		(env->mov) ? printf("--------\n") : ft_putchar('\n');
+		(env->opp) ? ft_printf("--------") : 0;
+		(env->mov) ? ft_printf("--------") : 0;
+		ft_putchar('\n');
 		ft_printf("| %-8c | %8c |", 'A', 'B');
-		(env->mov) ? ft_printf(" %4s |\n", "Moves") : ft_putchar('\n');
+		(env->opp) ? ft_printf(" %5s |", "Last") : 0;
+		(env->mov) ? ft_printf(" %4s |", "Moves") : 0;
+		ft_putchar('\n');
 		ft_printf("-----------------------");
-		(env->mov) ? printf("--------\n") : ft_putchar('\n');
+		(env->opp) ? ft_printf("--------") : 0;
+		(env->mov) ? ft_printf("--------") : 0;
+		ft_putchar('\n');
 	}
 	else if (i == 0)
 		ft_printf("-----------------------\n");
 }
 
-void		sidebar(t_env *env, int m, int tot)
+void		sidebar(t_env *env, int m, char *l, int tot)
 {
+	int		i;
+	
+	if (env->opp)
+	{
+		if (l)
+		{
+			i = ft_strlen(l);
+			i = (i == 3) ? 7 - i : 6 - i;
+			(m == 0) ? ft_printf(" %*s  |", i, l) : 0;
+		}
+		else
+			(m == 0) ? ft_printf("%8c", '|') : 0;
+		(m == 1) ? plines(env, 2) : 0;
+	}
 	if (env->mov)
 	{
 		(m == 0) ? ft_printf("%6d |", tot) : 0;
 		(m == 1) ? plines(env, 2) : 0;
 	}
+	ft_putchar('\n');
 }
 
-void		pstack(t_stack *stacka, t_stack *stackb, t_env *env, int tot)
+void		pstack(t_stack *a, t_stack *b, t_env *env, char *l, int tot)
 {
 	int		i;
 	int		m;
 
 	m = 0;
 	plines(env, 1);
-	while (stacka || stackb)
+	while (a || b)
 	{
-		i = (stacka) ? 9 - ft_num_len(stacka->val, 10) : 9;
+		i = (a) ? 9 - ft_num_len(a->val, 10) : 9;
 		ft_putchar('|');
-		(stacka) ? ft_printf(GREEN" %d"DEFAULT, stacka->val) : ft_putchar(' ');
+		(a) ? ft_printf(GREEN" %d"DEFAULT, a->val) : ft_putchar(' ');
 		while (--i)
 			ft_putchar(' ');
 		ft_putstr(" | ");
-		i = (stackb) ? 9 - ft_num_len(stackb->val, 10) : 9;
+		i = (b) ? 9 - ft_num_len(b->val, 10) : 9;
 		while (--i)
 			ft_putchar(' ');
-		(stackb) ? ft_printf(RED"%d "DEFAULT, stackb->val) : ft_putchar(' ');
+		(b) ? ft_printf(RED"%d "DEFAULT, b->val) : ft_putchar(' ');
 		ft_putchar('|');
-		sidebar(env, m, tot);
-		ft_putchar('\n');
+		sidebar(env, m, l, tot);
 		m++;
-		(stacka) ? (stacka = stacka->next) : NULL;
-		(stackb) ? (stackb = stackb->next) : NULL;
+		(a) ? (a = a->next) : NULL;
+		(b) ? (b = b->next) : NULL;
 	}
 	plines(env, 0);
 }
