@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/02 09:32:51 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 14:57:36 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,25 +76,22 @@ int			arg_her(char *line, t_stack **a, t_stack **b)
 
 int			get_args(t_stack **stacka, t_stack **stackb, t_env *env)
 {
-	int		i;
 	char	*line;
 
-	i = 0;
-	(env->vis) ? pstack(*stacka, *stackb, env, NULL, i) : 0;
+	(env->vis) ? pstack(*stacka, *stackb, env, NULL) : 0;
 	while (get_next_line(0, &line) > 0)
 	{
-		i += arg_her(line, stacka, stackb);
-		(env->vis) ? pstack(*stacka, *stackb, env, line, i) : 0;
+		env->moves += arg_her(line, stacka, stackb);
+		(env->vis) ? pstack(*stacka, *stackb, env, line) : 0;
 		free(line);
-		(env->step) ? sleep(1) : 0;
+		(env->step) ? usleep(50000) : 0;
 	}
-	return (i);
+	return (env->moves);
 }
 
 int			main(int ac, char **av)
 {
 	int		i;
-	int		tot;
 	t_env	env;
 	t_stack	*stacka;
 	t_stack	*stackb;
@@ -102,12 +99,15 @@ int			main(int ac, char **av)
 	i = 1;
 	stackb = NULL;
 	args(&ac, &av, &env);
-	if (ac == 1 || !check_args(ac, av))
+	if (ac == 1 || !check_args(ac, av) || dups_check(av))
 		return (0);
 	stacka = stack_init(av);
-	tot = get_args(&stacka, &stackb, &env);
+	env.moves = get_args(&stacka, &stackb, &env);
 	if (is_ordered(stacka) && !stackb)
-		ft_putendl(GREEN"OK");
+	{
+		ft_printf("%sOK\n", setcp);
+		(env.mov && !env.vis) ? ft_printf("Total moves: %d\n", env.moves) : 0;
+	}
 	else
 		ft_putendl(RED"KO");
 	return (0);

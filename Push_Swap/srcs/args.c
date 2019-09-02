@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 21:26:54 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/09/02 09:35:14 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 14:53:42 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,16 @@ void			understand_char(char c, t_env *flags)
 void			short_arg(char *str, t_env *flags)
 {
 	str += 1;
-	while ('\0' != *str)
+	if (*str != '\0')
 	{
-		understand_char(*str, flags);
-		str += 1;
+		while (*str != '\0')
+		{
+			understand_char(*str, flags);
+			str += 1;
+		}
 	}
+	else
+		puse();
 }
 
 void			args(int *ac, char ***av, t_env *env)
@@ -61,8 +66,6 @@ void			args(int *ac, char ***av, t_env *env)
 	pos -= 1;
 	*ac -= pos;
 	*av += pos;
-	if (env->mov && env->vis != 1)
-		env->mov = 0;
 	if (env->step && env->vis != 1)
 		env->step = 0;
 	if (env->opp && env->vis != 1)

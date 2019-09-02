@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 16:02:14 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 14:50:42 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,29 @@ int			check_dups(t_stack *list)
 			temp = temp->next;
 		}
 		cur = cur->next;
+	}
+	return (0);
+}
+
+int			dups_check(char **av)
+{
+	int		i;
+	int		j;
+
+	i = 1;
+	while (av[i])
+	{
+		j = i + 1;
+		while (av[j])
+		{
+			if (ft_strequ(av[i], av[j]))
+			{
+				ft_putendl("Error");
+				return (1);
+			}
+			j++;
+		}
+		i++;
 	}
 	return (0);
 }

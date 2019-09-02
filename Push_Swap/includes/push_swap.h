@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/02 09:34:35 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 14:50:50 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@ typedef struct		s_env
 	int				step;
 	int				mov;
 	int				opp;
+	int				moves;
+	int				done;
 }					t_env;
 
 t_stack				*stack_init(char **av);
+int					dups_check(char **av);
 void				push_b(t_stack **a, t_stack **b, int i, int max);
 void				puse(void);
 void				args(int *ac, char ***av, t_env *env);
@@ -53,7 +56,7 @@ int					push(t_stack **to, t_stack **from, int p, char *s);
 int					rotate(t_stack **stack, int p, char *s);
 int					rev_rotate(t_stack **stack, int p, char *s);
 int					check_sort(t_stack *stack);
-void				pstack(t_stack *a, t_stack *b, t_env *env, char *s, int t);
+void				pstack(t_stack *a, t_stack *b, t_env *env, char *s);
 int					check_args(int ac, char **args);
 int					list_size(t_stack *stack);
 void				sort_2(t_stack **stack);
