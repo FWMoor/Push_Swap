@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:01:35 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/02 09:56:21 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/02 10:26:13 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ void		puse(void)
 void		plines(t_env *env, int i)
 {
 	if (i == 2)
-		ft_printf("--------");
+		ft_printf("-------");
 	else if (i == 1)
 	{
 		ft_putstr("\e[1;1H\e[2J");
 		ft_printf("-----------------------");
-		(env->opp) ? ft_printf("--------") : 0;
-		(env->mov) ? ft_printf("--------") : 0;
+		(env->opp) ? ft_printf("-------") : 0;
+		(env->mov) ? ft_printf("-------") : 0;
 		ft_putchar('\n');
 		ft_printf("| %-8c | %8c |", 'A', 'B');
-		(env->opp) ? ft_printf(" %5s |", "Last") : 0;
-		(env->mov) ? ft_printf(" %4s |", "Moves") : 0;
+		(env->opp) ? ft_printf(" %4s |", "Last") : 0;
+		(env->mov) ? ft_printf(" %4s |", "Move") : 0;
 		ft_putchar('\n');
 		ft_printf("-----------------------");
-		(env->opp) ? ft_printf("--------") : 0;
-		(env->mov) ? ft_printf("--------") : 0;
+		(env->opp) ? ft_printf("-------") : 0;
+		(env->mov) ? ft_printf("-------") : 0;
 		ft_putchar('\n');
 	}
 	else if (i == 0)
@@ -57,16 +57,16 @@ void		sidebar(t_env *env, int m, char *l, int tot)
 		if (l)
 		{
 			i = ft_strlen(l);
-			i = (i == 3) ? 7 - i : 6 - i;
+			i = (i == 3) ? 6 - i : 5 - i;
 			(m == 0) ? ft_printf(" %*s  |", i, l) : 0;
 		}
 		else
-			(m == 0) ? ft_printf("%8c", '|') : 0;
+			(m == 0) ? ft_printf("%7c", '|') : 0;
 		(m == 1) ? plines(env, 2) : 0;
 	}
 	if (env->mov)
 	{
-		(m == 0) ? ft_printf("%6d |", tot) : 0;
+		(m == 0) ? ft_printf("%5d |", tot) : 0;
 		(m == 1) ? plines(env, 2) : 0;
 	}
 	ft_putchar('\n');
