@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:01:35 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/03 16:43:40 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/09/03 16:53:16 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ void		plines(t_env *env, int i, char *l)
 		(env->mov) ? ft_printf("%9d |", env->moves) : 0;
 		ft_putchar('\n');
 		(env->opp) ? ft_printf("------------") : 0;
-		(env->mov) ? ft_printf("------------") : 0;
+		if (env->opp && env->mov)
+				ft_printf("-----------");
+		else
+			(env->mov) ? ft_printf("------------") : 0;
 		ft_putchar('\n');
 	}
 	else if (i == 1)
