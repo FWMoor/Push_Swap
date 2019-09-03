@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:01:35 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/02 14:35:31 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/03 16:43:40 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ void		plines(t_env *env, int i, char *l)
 void		pstack(t_stack *a, t_stack *b, t_env *env, char *l)
 {
 	int		i;
-	int		m;
 
-	m = 0;
 	plines(env, 1, l);
 	while (a || b)
 	{

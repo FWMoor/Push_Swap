@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/02 14:57:36 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/03 16:44:52 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,10 @@ int			get_args(t_stack **stacka, t_stack **stackb, t_env *env)
 
 int			main(int ac, char **av)
 {
-	int		i;
 	t_env	env;
 	t_stack	*stacka;
 	t_stack	*stackb;
 
-	i = 1;
 	stackb = NULL;
 	args(&ac, &av, &env);
 	if (ac == 1 || !check_args(ac, av) || dups_check(av))
@@ -105,7 +103,7 @@ int			main(int ac, char **av)
 	env.moves = get_args(&stacka, &stackb, &env);
 	if (is_ordered(stacka) && !stackb)
 	{
-		ft_printf("%sOK\n", setcp);
+		ft_printf("%sOK\n", setcol("1", &env));
 		(env.mov && !env.vis) ? ft_printf("Total moves: %d\n", env.moves) : 0;
 	}
 	else

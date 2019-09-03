@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 14:05:03 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/30 16:04:30 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/03 16:44:02 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,10 @@ void		sorting(t_stack **stacka, t_stack **stackb)
 
 int			main(int ac, char **av)
 {
-	int		i;
 	t_stack	*stacka;
 	t_stack	*stackb;
 
 	stackb = NULL;
-	i = 1;
 	if (ac == 1)
 		return (0);
 	else

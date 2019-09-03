@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:12:39 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/02 14:50:50 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/03 16:45:33 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct		s_env
 	int				done;
 }					t_env;
 
+
+char				*setcol(char *str, t_env *env);
 t_stack				*stack_init(char **av);
 int					dups_check(char **av);
 void				push_b(t_stack **a, t_stack **b, int i, int max);
