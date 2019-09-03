@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/03 16:44:52 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/09/03 16:59:45 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int			get_args(t_stack **stacka, t_stack **stackb, t_env *env)
 		env->moves += arg_her(line, stacka, stackb);
 		(env->vis) ? pstack(*stacka, *stackb, env, line) : 0;
 		free(line);
-		(env->step) ? usleep(50000) : 0;
+		(env->step) ? usleep(5000) : 0;
 	}
 	return (env->moves);
 }

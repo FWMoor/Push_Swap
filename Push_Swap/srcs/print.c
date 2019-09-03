@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:01:35 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/03 16:53:16 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/09/03 16:57:42 by fwmoor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,14 @@ char		*setcol(char *l, t_env *env)
 {
 	if (env->col)
 	{
-		if (l[0] == 's')
+		if (ft_strequ(l, "rrr") || ft_strequ(l, "ss"))
+			return (YELLOW);
+		else if (l[0] == 's')
 			return (BLUE);
-		else if (l[0] == 'r')
+		else if (l[0] == 'r' && ft_strlen(l) == 2)
 			return (CYAN);
+		else if (l[0] == 'r' && ft_strlen(l) == 3)
+			return (RED);
 		else if (l[0] == 'p')
 			return (MAGENTA);
 		else if (l[0] == '1')
