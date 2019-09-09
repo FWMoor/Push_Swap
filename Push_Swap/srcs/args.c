@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/01 21:26:54 by fwmoor            #+#    #+#             */
-/*   Updated: 2019/09/03 16:49:43 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/09/09 08:06:44 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ void			understand_char(char c, t_env *flags)
 
 void			init_arg(t_env *env)
 {
-		env->mov = 0;
-		env->moves = 0;
-		env->col = 0;
-		env->vis = 0;
-		env->step = 0;
-		env->opp = 0;
-		env->done = 0;
+	env->mov = 0;
+	env->moves = 0;
+	env->col = 0;
+	env->vis = 0;
+	env->step = 0;
+	env->opp = 0;
+	env->done = 0;
 }
 
 void			short_arg(char *str, t_env *flags)
@@ -80,6 +80,4 @@ void			args(int *ac, char ***av, t_env *env)
 	*av += pos;
 	if (env->step && env->vis != 1)
 		env->step = 0;
-	if (env->opp && env->vis != 1)
-		env->opp = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/21 11:49:55 by fremoor           #+#    #+#             */
-/*   Updated: 2019/08/19 10:53:00 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/09 08:40:00 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <string.h>
 # include <stdint.h>
 # include <ctype.h>
+# include <limits.h>
 
 # define ZERO 1
 # define BLANK 2
@@ -160,6 +161,7 @@ int					ft_sqrt(int nb);
 int					ft_factorial(int nb);
 int					ft_power(int nb, int pwr);
 char				*ft_strrev(char *str);
+long				ft_atol(char *str);
 void				ft_foreach(int *tab, int len, void(*f)(int));
 
 /*

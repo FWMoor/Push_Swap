@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 10:14:38 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/03 16:59:45 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/09/09 08:04:23 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,10 @@ int			get_args(t_stack **stacka, t_stack **stackb, t_env *env)
 	{
 		env->moves += arg_her(line, stacka, stackb);
 		(env->vis) ? pstack(*stacka, *stackb, env, line) : 0;
+		(env->opp && !env->vis) ?
+		ft_printf("\e[1;1H\e[2JLast move: %s\n", line) : 0;
 		free(line);
-		(env->step) ? usleep(5000) : 0;
+		(env->step && env->vis) ? usleep(5000) : 0;
 	}
 	return (env->moves);
 }
@@ -107,6 +109,6 @@ int			main(int ac, char **av)
 		(env.mov && !env.vis) ? ft_printf("Total moves: %d\n", env.moves) : 0;
 	}
 	else
-		ft_putendl(RED"KO");
+		ft_printf("%sKO\n", setcol("rra", &env));
 	return (0);
 }

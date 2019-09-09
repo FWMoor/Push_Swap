@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/27 09:01:35 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/03 16:57:42 by fwmoor           ###   ########.fr       */
+/*   Updated: 2019/09/09 08:50:47 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,33 +52,30 @@ char		*setcol(char *l, t_env *env)
 
 void		plines(t_env *env, int i, char *l)
 {
+	char	*meh;
+
+	meh = "---------------------------------\n";
 	if (i == 2 && (env->mov || env->opp))
 	{
 		ft_putstr("| ");
-		(env->opp) ? ft_printf("%-8s | ", "Last") : 0;
-		(env->mov) ? ft_printf("%8s |", "Move") : 0;
+		(env->opp) ? ft_printf("%-13s | ", "Last") : 0;
+		(env->mov) ? ft_printf("%13s |", "Move") : 0;
 		ft_putstr("\n|");
-		if (l)
-			(env->opp) ? ft_printf("%s %-8s \x1b[0m|", setcol(l, env), l) : 0;
-		else
-			(env->opp) ? ft_printf(" %-8c |", ' ') : 0;
-		(env->mov) ? ft_printf("%9d |", env->moves) : 0;
+		(env->opp && l) ? ft_printf("%s %-13s \x1b[0m|", setcol(l, env), l) : 0;
+		(env->opp && !l) ? ft_printf(" %-13c |", ' ') : 0;
+		(env->mov) ? ft_printf("%14d |", env->moves) : 0;
 		ft_putchar('\n');
-		(env->opp) ? ft_printf("------------") : 0;
-		if (env->opp && env->mov)
-				ft_printf("-----------");
-		else
-			(env->mov) ? ft_printf("------------") : 0;
-		ft_putchar('\n');
+		(env->opp && !env->mov) ? ft_printf("-----------------\n") : 0;
+		(env->mov && !env->opp) ? ft_printf("-----------------\n") : 0;
+		(env->opp && env->mov) ? ft_putstr(meh) : 0;
 	}
 	else if (i == 1)
 	{
-		ft_printf("\e[1;1H\e[2J-----------------------");
-		ft_printf("\n| %-8c | %8c |", 'A', 'B');
-		ft_printf("\n-----------------------\n");
+		ft_printf("\e[1;1H\e[2J%s", meh);
+		ft_printf("| %-13c | %13c |\n%s", 'A', 'B', meh);
 	}
 	else if (i == 0)
-		ft_printf("-----------------------\n");
+		ft_putstr(meh);
 }
 
 void		pstack(t_stack *a, t_stack *b, t_env *env, char *l)
@@ -88,13 +85,13 @@ void		pstack(t_stack *a, t_stack *b, t_env *env, char *l)
 	plines(env, 1, l);
 	while (a || b)
 	{
-		i = (a) ? 9 - ft_num_len(a->val, 10) : 9;
+		i = (a) ? 14 - ft_num_len(a->val, 10) : 14;
 		(a) ? ft_printf("|%s %d"DEFAULT, setcol("1", env), a->val) :
 		ft_putstr("| ");
 		while (--i)
 			ft_putchar(' ');
 		ft_putstr(" | ");
-		i = (b) ? 9 - ft_num_len(b->val, 10) : 9;
+		i = (b) ? 14 - ft_num_len(b->val, 10) : 14;
 		while (--i)
 			ft_putchar(' ');
 		(b) ? ft_printf("%s%d \x1b[0m|", setcol("2", env), b->val) :

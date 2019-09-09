@@ -6,7 +6,7 @@
 /*   By: fremoor <fremoor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/19 12:42:36 by fremoor           #+#    #+#             */
-/*   Updated: 2019/09/02 14:50:42 by fremoor          ###   ########.fr       */
+/*   Updated: 2019/09/09 08:42:38 by fremoor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,11 @@ int			check_args(int ac, char **args)
 	i = 1;
 	while (i < ac)
 	{
-		j = 0;
+		j = -1;
 		temp = ft_strsplit(args[i++], ' ');
-		while (temp[j])
-			if (!digit_her(temp[j++]))
+		while (temp[++j])
+			if (!digit_her(temp[j]) || ft_atol(temp[j]) > INT_MAX ||
+			ft_atol(temp[j]) < INT_MIN)
 			{
 				free_her(temp);
 				ft_putendl("Error");
