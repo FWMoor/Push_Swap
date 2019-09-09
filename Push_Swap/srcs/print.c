@@ -18,7 +18,7 @@ void		puse(void)
 	ft_putendl("Push_Swap:");
 	ft_putendl("usage: ./push_swap [nums]\n");
 	ft_putendl("Checker:");
-	ft_putendl("usage: ./checker [-vu] [nums]");
+	ft_putendl("usage: ./checker [-vucsmo] [nums]");
 	ft_putendl("\t-v\tVisual mode prints stacks after each move");
 	ft_putendl("\t-u\tUsage flag displays this screen");
 	ft_putendl("\t-c\tAdds colour to the output");
