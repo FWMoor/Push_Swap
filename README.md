@@ -60,7 +60,7 @@ make
 
 ## Disclaimer:  
 Use my code at your own risk!  
-I've listed a few names of people that have helped me with ft_ls.  
+I've listed a few names of people that have helped me with push_swap.  
 Be sure to check out their profiles when you have time.
 
 ## Helpers
